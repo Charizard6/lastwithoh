@@ -11,16 +11,23 @@ const connectEmail = document.querySelector('.email');
 const setUserName = (name) => {
   nameH1Element.textContent = name;
   connectNameElement.textContent = name;
+  localStorage.setItem('name', name);
 };
 const setUserNo = (sNo) => {
   connectNo.textContent = sNo;
+  localStorage.setItem('studentNo', sNo);
 };
 const setUserEmail = (eemail) => {
   connectEmail.textContent = eemail;
+  localStorage.setItem('email', eemail);
 };
 
 const localName = localStorage.getItem('name');
+const localStudentNo = localStorage.getItem('studentNo');
+const localEmail = localStorage.getItem('email');
 if (localName) setUserName(localName);
+if (localStudentNo) setUserNo(localStudentNo);
+if (localEmail) setUserEmail(localEmail);
 
 
 nameH1Element.onclick = () => {
