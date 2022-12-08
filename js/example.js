@@ -9,9 +9,9 @@ const modalSubmitButton = document.querySelector('button.modalSubmit');
 const connectNo = document.querySelector('.studentNo');
 const connectEmail = document.querySelector('.email');
 
-const getName = document.querySelector('#userName');
-const getNumber = document.querySelector('#studentNo');
-const getEmail = document.querySelector('#email');
+const getName = document.querySelector('#userName').value;
+const getNumber = document.querySelector('#studentNo').value;
+const getEmail = document.querySelector('#email').value;
 
 const setUserName = (name) => {
   nameH1Element.textContent = name;
