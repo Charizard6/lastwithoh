@@ -8,3 +8,6 @@ body{
 .red{
     color: red;
 }
+#inputModal::backdrop{
+    background-color: rgba(0, 0, 0, 0.7);
+}
