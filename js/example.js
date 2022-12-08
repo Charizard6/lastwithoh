@@ -10,7 +10,7 @@ if (localName) {
 }
 
 
-nameH1Element.onClick = () => {
+nameH1Element.onclick = () => {
   const inputName = prompt('이름을 입력해주세요.');
   if (inputName) {
     localStorage.setItem('name', inputName);
