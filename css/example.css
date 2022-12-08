@@ -3,4 +3,5 @@ body{
 }
 .inline{
     display: inline-block;
+    cursor: pointer;
 }
