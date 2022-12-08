@@ -71,7 +71,7 @@ modalSubmitButton.onclick = () =>{
 
 function checkForm(name, number, email) {
   const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  if (name.value == '') {
+  if (name.value == '' || name.value == null) {
     alert('이름을 입력하세요');
     return false;
   } else if (number.length != 9) {
