@@ -5,3 +5,6 @@ body{
     display: inline-block;
     cursor: pointer;
 }
+.red{
+    color: red;
+}
