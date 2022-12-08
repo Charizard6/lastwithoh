@@ -25,4 +25,5 @@ nameH1Element.onclick = () => {
   }*/
 inputModalElement.onclick = (event) => {
   if (event.target.nodeNAme === 'DIALOG') inputModalElement.close();
+  console.log(event.target);
 };
