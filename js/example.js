@@ -1,4 +1,5 @@
-/* eslint-disable linebreak-style */
+/* eslint-disable require-jsdoc *//* eslint-disable linebreak-style */
+
 const nameH1Element = document.querySelector('h1.inline');
 const connectNameElement = document.querySelector('span.red');
 
@@ -7,6 +8,8 @@ const modalSubmitButton = document.querySelector('button.modalSubmit');
 
 const connectNo = document.querySelector('.studentNo');
 const connectEmail = document.querySelector('.email');
+
+const getEmail = document.querySelector('#email');
 
 const setUserName = (name) => {
   nameH1Element.textContent = name;
@@ -46,14 +49,24 @@ inputModalElement.onclick = (event) => {
 };
 
 modalSubmitButton.onclick = () =>{
-  const modalFormElement = document.querySelector('.modalForm');
-  const formData = new FormData(modalFormElement);
+  if (validateEmail(getEmail)) {
+    const modalFormElement = document.querySelector('.modalForm');
+    const formData = new FormData(modalFormElement);
 
-  for (const [key, value] of formData) {
-    localStorage.setItem(key, value);
-    if (key === 'userName') setUserName(value);
-    if (key === 'studentNo') setUserNo(value);
-    if (key === 'email') setUserEmail(value);
+    for (const [key, value] of formData) {
+      localStorage.setItem(key, value);
+      if (key === 'userName') setUserName(value);
+      if (key === 'studentNo') setUserNo(value);
+      if (key === 'email') setUserEmail(value);
+    }
+    inputModalElement.close();
+  } else {
+    alert('이메일 형식에 맞게 입력');
   }
-  inputModalElement.close();
 };
+
+function validateEmail(email) {
+  // eslint-disable-next-line max-len
+  const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  return re.test(email);
+}

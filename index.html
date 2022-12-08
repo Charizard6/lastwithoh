@@ -20,12 +20,12 @@
             <form class="modalForm">
                 <label for="">
                     이름 : 
-                    <input name="userName" type="text"/>
+                    <input name="userName" type="text" required/>
                 </label>
                 <br>
                 <label for="">
                     학번 : 
-                    <input name="studentNo" type="text"/>
+                    <input name="studentNo" type="text" pattern=".{9}"/>
                 </label>
                 <br>
                 <label for="">
@@ -33,8 +33,8 @@
                     <input name="email" type="text"/>
                 </label>
                 <br>
+                <button class="modalSubmit" type="submit">화긴</button>
             </form>
-            <button class="modalSubmit">화긴</button>
         </div>
     </dialog>
     <script src="js/example.js"></script>
