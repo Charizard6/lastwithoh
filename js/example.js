@@ -9,10 +9,6 @@ const modalSubmitButton = document.querySelector('button.modalSubmit');
 const connectNo = document.querySelector('.studentNo');
 const connectEmail = document.querySelector('.email');
 
-const getName = document.querySelector('#userName').value;
-const getNumber = document.querySelector('#studentNo').value;
-const getEmail = document.querySelector('#email').value;
-
 const setUserName = (name) => {
   nameH1Element.textContent = name;
   connectNameElement.textContent = name;
@@ -51,10 +47,18 @@ inputModalElement.onclick = (event) => {
 };
 
 modalSubmitButton.onclick = () =>{
+  const modalFormElement = document.querySelector('.modalForm');
+  const formData = new FormData(modalFormElement);
+  let getName = '';
+  let getNumber = '';
+  let getEmail = '';
+  for (const [key, value] of formData) {
+    localStorage.setItem(key, value);
+    if (key === 'userName') getName = value;
+    if (key === 'studentNo') getNumber = value;
+    if (key === 'email') getEmail = value;
+  }
   if (checkForm(getName, getNumber, getEmail)) {
-    const modalFormElement = document.querySelector('.modalForm');
-    const formData = new FormData(modalFormElement);
-
     for (const [key, value] of formData) {
       localStorage.setItem(key, value);
       if (key === 'userName') setUserName(value);
@@ -70,7 +74,7 @@ function checkForm(name, number, email) {
   if (name.value == ' ') {
     alert('이름을 입력하세요');
     return false;
-  } else if (number.value.length != 9) {
+  } else if (number.length != 9) {
     alert('학번은 9자리입니다.');
     return false;
   } else if (!re.test(email)) {
