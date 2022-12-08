@@ -8,6 +8,7 @@ const modalSubmitButton = document.querySelector('button.modalSubmit');
 
 const connectNo = document.querySelector('.studentNo');
 const connectEmail = document.querySelector('.email');
+const getForm = document.querySelector('.modalForm');
 
 const setUserName = (name) => {
   nameH1Element.textContent = name;
@@ -65,6 +66,7 @@ modalSubmitButton.onclick = () =>{
       if (key === 'studentNo') setUserNo(value);
       if (key === 'email') setUserEmail(value);
     }
+    getForm.reset();
     inputModalElement.close();
   }
 };
