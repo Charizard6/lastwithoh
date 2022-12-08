@@ -49,7 +49,7 @@ inputModalElement.onclick = (event) => {
 };
 
 modalSubmitButton.onclick = () =>{
-  if (validateEmail(getEmail)) {
+  if (!(validateEmail(getEmail))) {
     const modalFormElement = document.querySelector('.modalForm');
     const formData = new FormData(modalFormElement);
 
