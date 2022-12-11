@@ -48,8 +48,7 @@ inputModalElement.onclick = (event) => {
 };
 
 modalSubmitButton.onclick = () =>{
-  const modalFormElement = document.querySelector('.modalForm');
-  const formData = new FormData(modalFormElement);
+  const formData = new FormData(getForm);
   let getName = '';
   let getNumber = '';
   let getEmail = '';
